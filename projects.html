@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Maya Diaz Huizar</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+    <style>
+        /* Base layout */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(249, 250, 251);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav-container {
+            max-width: 72rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Main layout */
+        main {
+            padding-top: 5rem;
+            flex: 1;
+        }
+
+        .section-container {
+            padding-top: 4rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Course styles */
+        .course-box {
+            background-color: #eef2ff;
+            border: 1px solid #d1d5db;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .course-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-code {
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: #4f46e5;
+        }
+
+        .course-title {
+            font-size: 1rem;
+            color: #374151;
+        }
+
+        /* Tab buttons */
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            background: none;
+            transition: color 0.3s, border-color 0.3s;
+            color: #4b5563;
+        }
+
+        .tab-button.active {
+            color: #6366f1;
+            border-bottom: 3px solid #6366f1;
+        }
+
+        .tab-button:hover {
+            color: #6366f1;
+        }
+
+        /* Section styles */
+        .education-section, .employment-section, .skills-section, .activities-section {
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .course-content {
+            min-height: 400px;
+        }
+
+        /* Project and Employment styles */
+        .employment-box {
+            display: flex;
+            gap: 2rem;
+            background-color: #f9fafb;
+            border: 1px solid #d1d5db;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 1.5rem;
+        }
+
+        .employment-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            width: 300px;
+            height: 250px;
+            flex-shrink: 0;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .project-content {
+            flex: 1;
+            max-width: calc(100% - 350px);
+        }
+
+        .employment-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .employment-role {
+            font-size: 1.25rem;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+
+        .employment-date {
+            font-size: 1rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .employment-description {
+            font-size: 1rem;
+            color: #374151;
+            text-align: left;
+            margin-top: 1rem;
+        }
+
+        .employment-details {
+            list-style-type: disc;
+            text-align: left;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .employment-details li {
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+
+        /* Skills styles */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .skills-category {
+            background-color: #f9fafb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid #d1d5db;
+        }
+
+        .skills-category h3 {
+            color: #1f2937;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .skills-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skills-list li {
+            color: #374151;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            background-color: #eef2ff;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Activities styles */
+        .activities-box {
+            background-color: #f9fafb;
+            border: 1px solid #d1d5db;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .activities-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .activities-date {
+            font-size: 1rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .activities-details {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+
+        .activities-details li {
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid #e5e7eb;
+            width: 100%;
+        }
+
+        footer .container {
+            text-align: center;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .employment-box {
+                flex-direction: column;
+            }
+
+            .project-image {
+                width: 100%;
+                height: 200px;
+            }
+
+            .project-content {
+                max-width: 100%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Utility classes */
+        .hidden {
+            display: none;
+        }
+
+        /* Mobile menu */
+        #mobile-menu.hidden {
+            display: none;
+        }
+
+        #mobile-menu {
+            background-color: white;
+            padding: 0.5rem 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+<!-- Navigation -->
+<nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <a href="/" class="text-xl font-semibold text-gray-900">Maya Diaz Huizar</a>
+            </div>
+
+            <div class="hidden sm:flex sm:items-center sm:space-x-8">
+                <a href="/about.html" class="text-gray-700 hover:text-gray-900">About</a>
+                <a href="/projects.html" class="text-gray-700 hover:text-gray-900">Projects</a>
+            </div>
+
+            <div class="flex items-center sm:hidden">
+                <button type="button" id="mobile-menu-button" class="text-gray-700 hover:text-gray-900">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden sm:hidden pb-3">
+            <a href="/about.html" class="block py-2 text-gray-700 hover:text-gray-900">About</a>
+            <a href="/projects.html" class="block py-2 text-gray-700 hover:text-gray-900">Projects</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<!-- Main Content -->
+<main class="container">
+    <div class="section-container">
+        <section class="bg-white rounded-lg shadow-sm p-6 projects-section">
+            <h1 class="text-3xl font-bold text-gray-900 mb-6">Projects</h1>
+            <div class="grid grid-cols-1 gap-6">
+                <!-- MNYY Search -->
+                <div class="employment-box">
+                    <div class="project-content">
+                        <p class="employment-title">MNYY Search</p>
+                        <p class="employment-date">Fall 2024</p>
+                        <ul class="employment-details">
+                            <li>Built complete search engine system including crawler (1M+ pages), indexer, and frontend, written entirely in Java</li>
+                            <li>Implemented tf-idf ranking and PageRank algorithm for result relevance</li>
+                            <li>Designed scalable Key-Value Store (KVS) and Flame worker coordinator system enabling distributed sharding</li>
+                            <li>Successfully deployed and tested on AWS infrastructure</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- WebGPU Path Tracer -->
+                <div class="employment-box">
+                    <img src="assets/pathtracer.gif" alt="WebGPU Path Tracer Screenshot" class="project-image">
+                    <div class="project-content">
+                        <p class="employment-title">WebGPU Path Tracer + NPR Stylizer + Cloth Simulation</p>
+                        <p class="employment-date">Fall 2024</p>
+                        <ul class="employment-details">
+                            <li>Developed a WebGPU-based path tracer with non-photorealistic rendering and cloth simulation using WGSL and TypeScript</li>
+                            <li>Inspired by recent SIGGRAPH research; integrated BVH acceleration and scene loading</li>
+                            <li>Try it in browser: <a href="https://alan7996.github.io/WebGPU-NPR/" class="text-indigo-600 hover:text-indigo-800" target="_blank" rel="noopener noreferrer">Live Demo</a> (requires Chrome with WebGPU support)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Forward+ -->
+                <div class="employment-box">
+                    <img src="assets/forwardplus.gif" alt="Forward Plus Screenshot" class="project-image">
+                    <div class="project-content">
+                        <p class="employment-title">WebGPU Clustered Forward+ and Deferred Shader</p>
+                        <p class="employment-date">Fall 2024</p>
+                        <ul class="employment-details">
+                            <li>Iteratively implemented three lighting techniques: naive, Forward+, and clustered deferred, demonstrating performance improvements at each stage</li>
+                            <li>Written entirely in WebGPU for browser-based execution</li>
+                            <li>Try it in browser: <a href="https://aorus1.github.io/Project4-WebGPU-Forward-Plus-and-Clustered-Deferred/" class="text-indigo-600 hover:text-indigo-800" target="_blank" rel="noopener noreferrer">Live Demo</a> (requires Chrome with WebGPU support)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CUDA Path Tracer -->
+                <div class="employment-box">
+                    <img src="assets/cudatracer.jpg" alt="CUDA Path Tracer Screenshot" class="project-image">
+                    <div class="project-content">
+                        <p class="employment-title">CUDA Path Tracer</p>
+                        <p class="employment-date">Fall 2024</p>
+                        <ul class="employment-details">
+                            <li>Developed advanced path tracer in CUDA with features including GLTF scene loading, depth of field, anti-aliasing</li>
+                            <li>Implemented Russian roulette path termination and support for specular + diffuse materials</li>
+                            <li>View project: <a href="https://github.com/Aorus1/Project3-CUDA-Path-Tracer" class="text-indigo-600 hover:text-indigo-800" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mini Minecraft -->
+                <div class="employment-box">
+                    <img src="assets/miniminecraft.jpg" alt="Mini Minecraft Screenshot" class="project-image">
+                    <div class="project-content">
+                        <p class="employment-title">Mini Minecraft</p>
+                        <p class="employment-date">Spring 2023</p>
+                        <ul class="employment-details">
+                            <li>Developed Minecraft clone using C++ and OpenGL</li>
+                            <li>Implemented multithreaded terrain generation with procedural cave systems and terrain features</li>
+                            <li>Optimized rendering through efficient mesh generation, player simulation, and physics systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PennOS -->
+                <div class="employment-box">
+                    <div class="project-content">
+                        <p class="employment-title">PennOS</p>
+                        <p class="employment-date">Spring 2023</p>
+                        <ul class="employment-details">
+                            <li>Developed a Unix-like operating system with priority scheduling, filesystem, and shell</li>
+                            <li>Wrote extensive documentation, worked collaboratively</li>
+                            <li>Continuously integrated with filesystem team</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+<!-- Footer -->
+<footer class="bg-white mt-12 py-8 border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <p class="text-gray-600">© 2024 Maya Diaz Huizar</p>
+            <div class="flex justify-center items-center gap-6 mt-4">
+                <a href="https://github.com/mayahuizar"
+                   class="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i data-feather="github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/maya-diaz-huizar-12a643306/"
+                   class="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i data-feather="linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:huizar@seas.upenn.edu"
+                   class="flex items-center gap-2 text-gray-600 hover:text-gray-900">
+                    <i data-feather="mail"></i>
+                    <span>Email</span>
+                </a>
+                <a href="/assets/resume.pdf"
+                   class="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i data-feather="file-text"></i>
+                    <span>Resume</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    // Initialize Feather icons
+    if (typeof feather !== 'undefined') {
+        feather.replace();
+    }
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    // Course tabs functionality
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabs = ['freshman', 'sophomore', 'junior', 'senior'];
+
+        tabs.forEach(year => {
+            const tab = document.getElementById(`${year}-tab`);
+            const content = document.getElementById(`${year}-courses`);
+
+            if (tab && content) {
+                tab.addEventListener('click', () => {
+                    // Hide all course sections and deactivate all tabs
+                    tabs.forEach(y => {
+                        const courseContent = document.getElementById(`${y}-courses`);
+                        const courseTab = document.getElementById(`${y}-tab`);
+                        if (courseContent) courseContent.classList.add('hidden');
+                        if (courseTab) courseTab.classList.remove('active');
+                    });
+
+                    // Show the selected course section and activate the corresponding tab
+                    content.classList.remove('hidden');
+                    tab.classList.add('active');
+                });
+            }
+        });
+
+        // Set default active tab
+        const defaultTab = document.getElementById('junior-tab');
+        if (defaultTab) {
+            defaultTab.click();
+        }
+    });
+</script>
+</body>
+</html>

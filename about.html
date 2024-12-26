@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Maya Diaz Huizar</title>
+  <link rel="stylesheet" href="/src/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+  <style>
+    /* Base layout */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(249, 250, 251);
+    }
+
+    /* Navigation */
+    nav {
+      background-color: white;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-container {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Main layout */
+    main {
+      padding-top: 5rem;
+      flex: 1;
+    }
+
+    .section-container {
+      padding-top: 4rem;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Course styles */
+    .course-box {
+      background-color: #eef2ff;
+      border: 1px solid #d1d5db;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .course-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .course-code {
+      font-weight: bold;
+      font-size: 1.25rem;
+      color: #4f46e5;
+    }
+
+    .course-title {
+      font-size: 1rem;
+      color: #374151;
+    }
+
+    /* Tab buttons */
+    .tab-button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: color 0.3s, border-color 0.3s;
+      color: #4b5563;
+    }
+
+    .tab-button.active {
+      color: #6366f1;
+      border-bottom: 3px solid #6366f1;
+    }
+
+    .tab-button:hover {
+      color: #6366f1;
+    }
+
+    /* Section styles */
+    .education-section, .employment-section, .skills-section, .activities-section {
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .course-content {
+      min-height: 400px;
+    }
+
+    /* Employment styles */
+    .employment-box {
+      background-color: #f9fafb;
+      border: 1px solid #d1d5db;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .employment-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .employment-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+    }
+
+    .employment-role {
+      font-size: 1.25rem;
+      color: #4b5563;
+      margin-bottom: 0.5rem;
+    }
+
+    .employment-date {
+      font-size: 1rem;
+      color: #6b7280;
+      margin-bottom: 1rem;
+    }
+
+    .employment-description {
+      font-size: 1rem;
+      color: #374151;
+      text-align: left;
+      margin-top: 1rem;
+    }
+
+    .employment-details {
+      list-style-type: disc;
+      text-align: left;
+      padding-left: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .employment-details li {
+      margin-bottom: 0.5rem;
+      color: #374151;
+    }
+
+    /* Skills styles */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .skills-category {
+      background-color: #f9fafb;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      border: 1px solid #d1d5db;
+    }
+
+    .skills-category h3 {
+      color: #1f2937;
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .skills-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .skills-list li {
+      color: #374151;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+      background-color: #eef2ff;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Activities styles */
+    .activities-box {
+      background-color: #f9fafb;
+      border: 1px solid #d1d5db;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .activities-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+    }
+
+    .activities-date {
+      font-size: 1rem;
+      color: #6b7280;
+      margin-bottom: 1rem;
+    }
+
+    .activities-details {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+
+    .activities-details li {
+      margin-bottom: 0.5rem;
+      color: #374151;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+      border-top: 1px solid #e5e7eb;
+      width: 100%;
+    }
+
+    footer .container {
+      text-align: center;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    /* Utility classes */
+    .hidden {
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      #mobile-menu.hidden {
+        display: none;
+      }
+
+      #mobile-menu {
+        background-color: white;
+        padding: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+<!-- Navigation -->
+<nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <div class="flex items-center">
+        <a href="/" class="text-xl font-semibold text-gray-900">Maya Diaz Huizar</a>
+      </div>
+
+      <div class="hidden sm:flex sm:items-center sm:space-x-8">
+        <a href="/about.html" class="text-gray-700 hover:text-gray-900">About</a>
+        <a href="/projects.html" class="text-gray-700 hover:text-gray-900">Projects</a>
+      </div>
+
+      <div class="flex items-center sm:hidden">
+        <button type="button" id="mobile-menu-button" class="text-gray-700 hover:text-gray-900">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden sm:hidden pb-3">
+      <a href="/about.html" class="block py-2 text-gray-700 hover:text-gray-900">About</a>
+      <a href="/projects.html" class="block py-2 text-gray-700 hover:text-gray-900">Projects</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<!-- Main Content -->
+<main class="container">
+  <!-- Education Section -->
+  <div class="section-container">
+    <section class="bg-white rounded-lg shadow-sm p-6 education-section">
+      <h1 class="text-3xl font-bold text-gray-900">Education</h1>
+      <div class="mt-4">
+        <h2 class="text-xl font-semibold text-gray-900">University of Pennsylvania</h2>
+        <p class="text-gray-600 mt-1">Expected Graduation: May 2026</p>
+        <div class="mt-4 space-y-2 text-gray-700">
+          <p>BSE in Computer Engineering and Mathematics (GPA: 3.31)</p>
+          <p>MSE in Computer and Information Science</p>
+        </div>
+        <div class="mt-8">
+          <div class="border-b border-gray-200">
+            <div class="flex space-x-4" role="tablist">
+              <button id="freshman-tab" class="tab-button" role="tab">Freshman Year</button>
+              <button id="sophomore-tab" class="tab-button" role="tab">Sophomore Year</button>
+              <button id="junior-tab" class="tab-button active" role="tab">Junior Year</button>
+              <button id="senior-tab" class="tab-button" role="tab">Senior Year</button>
+            </div>
+          </div>
+          <div class="mt-6 course-content">
+            <!-- Freshman Courses -->
+            <div id="freshman-courses" class="hidden">
+              <div class="course-grid">
+                <div class="course-box">
+                  <p class="course-code">MATH 1610</p>
+                  <p class="course-title">Honors Calculus I</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">MATH 2600</p>
+                  <p class="course-title">Honors Calculus II</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 2620</p>
+                  <p class="course-title">Automata, Computability, and Complexity</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">PHYS 0150</p>
+                  <p class="course-title">Principles of Physics I: Mechanics and Wave Motion</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">ESE 1120</p>
+                  <p class="course-title">Engineering Electromagnetics</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">STAT 4300</p>
+                  <p class="course-title">Probability</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">WRIT 0380</p>
+                  <p class="course-title">Writing Seminar</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 2400</p>
+                  <p class="course-title">Introduction to Computer Systems</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 1600</p>
+                  <p class="course-title">Mathematical Foundations of Computer Science</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">FNAR 0010</p>
+                  <p class="course-title">Drawing I</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 1200</p>
+                  <p class="course-title">Programming Languages and Techniques</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">STAT 4050</p>
+                  <p class="course-title">Statistical Computing in R</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sophomore Courses -->
+            <div id="sophomore-courses" class="hidden">
+              <div class="course-grid">
+                <div class="course-box">
+                  <p class="course-code">CIS 1210</p>
+                  <p class="course-title">Data Structures and Algorithms</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">ESE 3500</p>
+                  <p class="course-title">Embedded Systems/Microcontroller Laboratory</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">LING 0001</p>
+                  <p class="course-title">Introduction to Linguistics</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">ESE 2150</p>
+                  <p class="course-title">Electrical Circuits and Systems</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">ESE 3700</p>
+                  <p class="course-title">Circuit-Level Modeling, Design, and Optimization for Digital Systems</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">MATH 4100</p>
+                  <p class="course-title">Complex Analysis</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 5480</p>
+                  <p class="course-title">Operating Systems Design and Implementation</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">MATH 3140</p>
+                  <p class="course-title">Advanced Linear Algebra</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">MATH 4250</p>
+                  <p class="course-title">Partial Differential Equations</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 4600</p>
+                  <p class="course-title">Introduction to Computer Graphics</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">ARTH 2240</p>
+                  <p class="course-title">Art of Mesopotamia</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Junior Courses -->
+            <div id="junior-courses">
+              <div class="course-grid">
+                <div class="course-box">
+                  <p class="course-code">MATH 3600</p>
+                  <p class="course-title">Real Analysis I</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">MATH 3610</p>
+                  <p class="course-title">Real Analysis II</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">MATH 3700</p>
+                  <p class="course-title">Abstract Algebra I</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 5710</p>
+                  <p class="course-title">Machine Learning</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 5550</p>
+                  <p class="course-title">Internet and Web Systems</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 5530</p>
+                  <p class="course-title">Networked Systems</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 5650</p>
+                  <p class="course-title">GPU Programming</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 5590</p>
+                  <p class="course-title">Programming and Problem Solving</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">LAWM 5060</p>
+                  <p class="course-title">Technology Law & Ethics</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 5521</p>
+                  <p class="course-title">Compilers and Interpreters</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">DSGN 1030</p>
+                  <p class="course-title">3D Modelling</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 5200</p>
+                  <p class="course-title">Machine Learning</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Senior Courses -->
+            <div id="senior-courses" class="hidden">
+              <p class="text-center text-gray-900 text-lg">Coming Soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Employment Section -->
+  <div class="section-container">
+    <section class="bg-white rounded-lg shadow-sm p-6 employment-section">
+      <h1 class="text-3xl font-bold text-gray-900 mb-6">Employment</h1>
+      <div class="grid grid-cols-1 gap-6">
+        <div class="employment-box">
+          <p class="employment-title">University of Pennsylvania</p>
+          <p class="employment-role">Teaching Assistant</p>
+          <div class="employment-positions">
+            <div class="mb-4">
+              <p class="employment-date">August 2024 - December 2024</p>
+              <p class="employment-description">Computer Architecture</p>
+            </div>
+            <div>
+              <p class="employment-date">December 2024 - Present</p>
+              <p class="employment-description">Operating Systems</p>
+            </div>
+          </div>
+          <ul class="employment-details">
+            <li>Conducted weekly office hours and recitations to support student learning, groups of 10-20</li>
+            <li>Assisted in creating homeworks, exams, and project specifications</li>
+            <li>Wrote autograders and test cases</li>
+          </ul>
+        </div>
+
+        <div class="employment-box">
+          <p class="employment-title">University of Pennsylvania</p>
+          <p class="employment-role">Course Design Assistant</p>
+          <p class="employment-date">October 2024 - December 2024</p>
+          <p class="employment-description">GPU Programming for Machine Learning</p>
+          <ul class="employment-details">
+            <li>Assisted in designing course curriculum and developing assignments</li>
+            <li>Collaborated with faculty to create comprehensive learning materials</li>
+          </ul>
+        </div>
+
+        <div class="employment-box">
+          <p class="employment-title">Breakthrough San Francisco</p>
+          <p class="employment-role">Intern (VLP)</p>
+          <p class="employment-date">June 2019 - August 2022</p>
+          <ul class="employment-details">
+            <li>Taught computer science and mathematics to middle school students, groups of 10-20</li>
+            <li>Communicated technical details to non-technical audience</li>
+            <li>Assisted teachers and mentored high school students</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Projects Section -->
+  <div class="section-container">
+    <section class="bg-white rounded-lg shadow-sm p-6 projects-section">
+      <h1 class="text-3xl font-bold text-gray-900 mb-6">Projects</h1>
+      <div class="grid grid-cols-1 gap-6">
+        <div class="employment-box">
+          <p class="employment-title">WebGPU Path Tracer + NPR Stylizer + Cloth Simulation</p>
+          <p class="employment-date">Fall 2024</p>
+          <ul class="employment-details">
+            <li>Developed a WebGPU-based path tracer with non-photorealistic rendering and cloth simulation using WGSL and TypeScript</li>
+            <li>Inspired by recent SIGGRAPH research; integrated BVH acceleration and scene loading</li>
+            <li>Created live demo available on GitHub</li>
+          </ul>
+        </div>
+
+        <div class="employment-box">
+          <p class="employment-title">PennOS</p>
+          <p class="employment-date">Spring 2023</p>
+          <ul class="employment-details">
+            <li>Developed a Unix-like operating system with priority scheduling, filesystem, and shell</li>
+            <li>Wrote extensive documentation, worked collaboratively</li>
+            <li>Continuously integrated with filesystem team</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Activities Section -->
+
+  <!-- Skills Section -->
+  <div class="section-container">
+    <section class="bg-white rounded-lg shadow-sm p-6 skills-section">
+      <h1 class="text-3xl font-bold text-gray-900 mb-6">Skills</h1>
+      <div class="skills-grid">
+        <div class="skills-category">
+          <h3>Programming Languages & Frameworks</h3>
+          <ul class="skills-list">
+            <li>Java</li>
+            <li>C</li>
+            <li>C++</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>R</li>
+            <li>CUDA</li>
+            <li>WebGPU</li>
+          </ul>
+        </div>
+        <div class="skills-category">
+          <h3>Technologies</h3>
+          <ul class="skills-list">
+            <li>GPU Programming</li>
+            <li>ISAs</li>
+            <li>VLSI</li>
+            <li>SPICE</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-white mt-12 py-8 border-t border-gray-200">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <p class="text-gray-600">© 2024 Maya Diaz Huizar</p>
+      <div class="flex justify-center items-center gap-6 mt-4">
+        <a href="https://github.com/mayahuizar"
+           class="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i data-feather="github"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/maya-diaz-huizar-12a643306/"
+           class="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i data-feather="linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="mailto:huizar@seas.upenn.edu"
+           class="flex items-center gap-2 text-gray-600 hover:text-gray-900">
+          <i data-feather="mail"></i>
+          <span>Email</span>
+        </a>
+        <a href="/assets/resume.pdf"
+           class="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i data-feather="file-text"></i>
+          <span>Resume</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  // Initialize Feather icons
+  if (typeof feather !== 'undefined') {
+    feather.replace();
+  }
+
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // Course tabs functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = ['freshman', 'sophomore', 'junior', 'senior'];
+
+    tabs.forEach(year => {
+      const tab = document.getElementById(`${year}-tab`);
+      const content = document.getElementById(`${year}-courses`);
+
+      if (tab && content) {
+        tab.addEventListener('click', () => {
+          // Hide all course sections and deactivate all tabs
+          tabs.forEach(y => {
+            const courseContent = document.getElementById(`${y}-courses`);
+            const courseTab = document.getElementById(`${y}-tab`);
+            if (courseContent) courseContent.classList.add('hidden');
+            if (courseTab) courseTab.classList.remove('active');
+          });
+
+          // Show the selected course section and activate the corresponding tab
+          content.classList.remove('hidden');
+          tab.classList.add('active');
+        });
+      }
+    });
+
+    // Set default active tab
+    const defaultTab = document.getElementById('junior-tab');
+    if (defaultTab) {
+      defaultTab.click();
+    }
+  });
+</script>
+</body>
+</html>
