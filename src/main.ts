@@ -1,36 +1,71 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
-// src/ts/main.ts
-import { initializeNavigation } from './navigation';
+import './style.css';
 
-// Load header
-fetch('/src/shared/header.html')
-    .then(response => response.text())
-    .then(html => {
-        const headerPlaceholder = document.getElementById('header-placeholder');
-        if (headerPlaceholder) {
-            headerPlaceholder.outerHTML = html;
-            initializeNavigation();
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize mobile menu functionality
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+        // Toggle mobile menu
+        mobileMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const target = e.target as HTMLElement;
+            if (!mobileMenuButton.contains(target) && !mobileMenu.contains(target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Close menu when window is resized to desktop size
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 640) { // sm breakpoint in Tailwind
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    }
+
+    // Handle course tab functionality
+    const tabs = ['freshman', 'sophomore', 'junior', 'senior'];
+
+    tabs.forEach(year => {
+        const tab = document.getElementById(`${year}-tab`);
+        const content = document.getElementById(`${year}-courses`);
+
+        if (tab && content) {
+            tab.addEventListener('click', () => {
+                // Hide all course sections and deactivate all tabs
+                tabs.forEach(y => {
+                    const courseContent = document.getElementById(`${y}-courses`);
+                    const courseTab = document.getElementById(`${y}-tab`);
+                    if (courseContent) courseContent.classList.add('hidden');
+                    if (courseTab) {
+                        courseTab.classList.remove('active');
+                        courseTab.classList.remove('text-gray-900', 'border-indigo-500');
+                        courseTab.classList.add('text-gray-500');
+                    }
+                });
+
+                // Show the selected course section and activate the corresponding tab
+                content.classList.remove('hidden');
+                tab.classList.add('active');
+                tab.classList.remove('text-gray-500');
+                tab.classList.add('text-gray-900', 'border-indigo-500');
+            });
         }
     });
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+    // Set junior tab as default active tab on the about page
+    const defaultTab = document.getElementById('junior-tab');
+    if (defaultTab) {
+        defaultTab.click();
+    }
+
+    // Initialize Feather icons if the script is loaded
+    if (typeof window.feather !== 'undefined') {
+        window.feather.replace();
+    }
+});
