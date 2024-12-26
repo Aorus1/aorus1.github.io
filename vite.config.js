@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
 export default defineConfig({
-    base: '/', // Changed this for GH pages
+    base: './', // Changed this for GH pages
     build: {
         outDir: 'dist',
         rollupOptions: {
