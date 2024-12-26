@@ -3,3 +3,24 @@
 @tailwind utilities;
 
 
+
+/* Reset body styles */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: rgb(249, 250, 251);
+    color: #1f2937;  /* Force dark text */
+}
+
+/* Force light theme */
+:root {
+    color-scheme: light;
+    color: #1f2937;
+    background-color: rgb(249, 250, 251);
+}
+
+/* Utility class fix */
+.hidden {
+    display: none !important;
+}
