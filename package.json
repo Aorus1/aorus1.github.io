@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && tailwindcss -i ./src/style.css -o ./dist/style.css --minify",
+    "build": "tsc && vite build && npm run build:css",
     "preview": "vite preview",
-    "tailwind:build": "tailwindcss -i ./src/style.css -o ./dist/style.css --minify"
+    "build:css": "tailwindcss -i ./src/style.css -o ./dist/style.css --minify"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
