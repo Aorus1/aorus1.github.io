@@ -12,7 +12,14 @@ export default defineConfig({
                 projects: resolve(__dirname, 'projects.html')
             }
         },
-        // Add this to ensure proper CSS handling
-        cssCodeSplit: false
+        assetsDir: 'assets',
+        // Don't add hashes to asset filenames
+        rollupOptions: {
+            output: {
+                entryFileNames: 'assets/[name].js',
+                chunkFileNames: 'assets/[name].js',
+                assetFileNames: 'assets/[name].[ext]'
+            }
+        }
     }
 })
