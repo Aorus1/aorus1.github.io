@@ -1,25 +1,15 @@
 import { defineConfig } from 'vite'
-import { resolve } from 'path'
 
 export default defineConfig({
-    base: './',
+    base: '/',
     build: {
         outDir: 'dist',
         rollupOptions: {
             input: {
-                main: resolve(__dirname, 'index.html'),
-                about: resolve(__dirname, 'about.html'),
-                projects: resolve(__dirname, 'projects.html')
-            },
-            output: {
-                assetFileNames: (assetInfo) => {
-                    if (assetInfo.name === 'style.css') return 'assets/style.css';
-                    return 'assets/[name].[ext]';
-                }
+                main: 'index.html',
+                about: 'about.html',
+                projects: 'projects.html'
             }
         }
-    },
-    css: {
-        postcss: './postcss.config.js'
     }
 })
