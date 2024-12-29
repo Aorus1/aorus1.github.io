@@ -4,101 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maya Diaz Huizar</title>
+  <link rel="stylesheet" href="/src/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
 </head>
-<body class="bg-gray-50">
-<!-- Navigation -->
-<nav class="bg-white shadow-sm fixed w-full top-0 z-50">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between h-16">
-      <div class="flex items-center">
-        <a href="./" class="text-xl font-semibold text-gray-900">Maya Diaz Huizar</a>
-      </div>
+<body>
+<nav>
+  <div class="nav-container">
+    <a href="./" class="nav-brand">Maya Diaz Huizar</a>
 
-      <div class="sm:flex sm:items-center sm:space-x-8">
-        <a href="./about.html" class="text-gray-700 hover:text-gray-900">About</a>
-        <a href="./projects.html" class="text-gray-700 hover:text-gray-900">Projects</a>
-      </div>
-
-      <div class="flex items-center sm:hidden">
-        <button type="button" id="mobile-menu-button" class="text-gray-700 hover:text-gray-900">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
+    <div class="nav-links">
+      <a href="./about.html" class="nav-link">About</a>
+      <a href="./projects.html" class="nav-link">Projects</a>
     </div>
 
-    <div id="mobile-menu" class="hidden sm:hidden pb-3">
-      <a href="./about.html" class="block py-2 text-gray-700 hover:text-gray-900">About</a>
-      <a href="./projects.html" class="block py-2 text-gray-700 hover:text-gray-900">Projects</a>
-    </div>
+    <button type="button" id="mobile-menu-button" class="mobile-menu-button">
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="mobile-menu hidden">
+    <a href="./about.html" class="nav-link">About</a>
+    <a href="./projects.html" class="nav-link">Projects</a>
   </div>
 </nav>
 
-<!-- Main Content -->
-<main class="pt-16">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="flex flex-col lg:flex-row items-center gap-12">
-      <div class="lg:w-1/2">
-        <div class="aspect-square overflow-hidden rounded-2xl shadow-lg">
-          <img
-                  src="public/profile-pic.png"
-                  alt="Maya Diaz Huizar"
-                  class="w-full h-full object-cover"
-          >
-        </div>
-      </div>
+<main>
+  <div class="hero-container">
+    <div class="hero-image">
+      <img src="public/profile-pic.png" alt="Maya Diaz Huizar">
+    </div>
 
-      <div class="lg:w-1/2 space-y-6">
-        <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl">
-          Hi, I'm Maya.
-        </h1>
-        <p class="text-xl text-gray-600">
-          Computer Engineering & Mathematics Student at UPenn
-        </p>
-        <p class="text-gray-600">
-          I'm pursuing a dual degree in Computer Engineering and Mathematics at the University of Pennsylvania, alongside a Master's in Computer Science through UPenn's accelerated master's program. I specialize in GPU programming, computer graphics, and systems development, with experience in both teaching and practical implementation. My recent work includes developing a WebGPU-based path tracer and contributing to course design for GPU Programming. I'm particularly passionate about the intersection of hardware and software optimization, having worked on projects ranging from operating systems to flight control systems.
-        </p>
+    <div class="hero-content">
+      <h1 class="hero-title">Hi, I'm Maya.</h1>
+      <p class="hero-subtitle">Computer Engineering & Mathematics Student at UPenn</p>
+      <p class="hero-text">
+        I'm pursuing a dual degree in Computer Engineering and Mathematics at the University of Pennsylvania,
+        alongside a Master's in Computer Science through UPenn's accelerated master's program. I specialize
+        in GPU programming, computer graphics, and systems development, with experience in both teaching and
+        practical implementation. My recent work includes developing a WebGPU-based path tracer and contributing
+        to course design for GPU Programming. I'm particularly passionate about the intersection of hardware
+        and software optimization, having worked on projects ranging from operating systems to flight control systems.
+      </p>
 
-
-        <div class="flex flex-wrap gap-6 pt-4">
-          <a href="https://github.com/Aorus1"
-             class="flex items-center gap-2 text-gray-600 hover:text-gray-900"
-             target="_blank"
-             rel="noopener noreferrer">
-            <i data-feather="github"></i>
-            <span>GitHub</span>
-          </a>
-          <a href="https://www.linkedin.com/in/maya-diaz-huizar-12a643306/"
-             class="flex items-center gap-2 text-gray-600 hover:text-gray-900"
-             target="_blank"
-             rel="noopener noreferrer">
-            <i data-feather="linkedin"></i>
-            <span>LinkedIn</span>
-          </a>
-          <a href="mailto:huizar@seas.upenn.edu"
-             class="flex items-center gap-2 text-gray-600 hover:text-gray-900">
-            <i data-feather="mail"></i>
-            <span>Email</span>
-          </a>
-          <a href="/public/resume.pdf"
-             class="flex items-center gap-2 text-gray-600 hover:text-gray-900"
-             target="_blank"
-             rel="noopener noreferrer">
-            <i data-feather="file-text"></i>
-            <span>Resume</span>
-          </a>
-        </div>
+      <div class="social-links">
+        <a href="https://github.com/Aorus1" class="social-link" target="_blank" rel="noopener noreferrer">
+          <i data-feather="github"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/maya-diaz-huizar-12a643306/" class="social-link" target="_blank" rel="noopener noreferrer">
+          <i data-feather="linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="mailto:huizar@seas.upenn.edu" class="social-link">
+          <i data-feather="mail"></i>
+          <span>Email</span>
+        </a>
+        <a href="/public/resume.pdf" class="social-link" target="_blank" rel="noopener noreferrer">
+          <i data-feather="file-text"></i>
+          <span>Resume</span>
+        </a>
       </div>
     </div>
   </div>
 </main>
 
-<script type="module" src="./src/main.ts"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     feather.replace();
+
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
   });
 </script>
 </body>

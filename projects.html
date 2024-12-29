@@ -310,31 +310,25 @@
 </head>
 <body class="bg-gray-50">
 <!-- Navigation -->
-<nav class="bg-white shadow-sm fixed w-full top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex items-center">
-                <a href="/" class="text-xl font-semibold text-gray-900">Maya Diaz Huizar</a>
-            </div>
+<nav>
+    <div class="nav-container">
+        <a href="./" class="nav-brand">Maya Diaz Huizar</a>
 
-            <div class="sm:flex sm:items-center sm:space-x-8">
-                <a href="/about.html" class="text-gray-700 hover:text-gray-900">About</a>
-                <a href="/projects.html" class="text-gray-700 hover:text-gray-900">Projects</a>
-            </div>
-
-            <div class="flex items-center sm:hidden">
-                <button type="button" id="mobile-menu-button" class="text-gray-700 hover:text-gray-900">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-            </div>
+        <div class="nav-links">
+            <a href="./about.html" class="nav-link">About</a>
+            <a href="./projects.html" class="nav-link">Projects</a>
         </div>
 
-        <div id="mobile-menu" class="hidden sm:hidden pb-3">
-            <a href="/about.html" class="block py-2 text-gray-700 hover:text-gray-900">About</a>
-            <a href="/projects.html" class="block py-2 text-gray-700 hover:text-gray-900">Projects</a>
-        </div>
+        <button type="button" id="mobile-menu-button" class="mobile-menu-button">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu hidden">
+        <a href="./about.html" class="nav-link">About</a>
+        <a href="./projects.html" class="nav-link">Projects</a>
     </div>
 </nav>
 
@@ -432,32 +426,32 @@
     </div>
 </main>
 <!-- Footer -->
-<footer class="bg-white mt-12 py-8 border-t border-gray-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
-            <p class="text-gray-600">© 2024 Maya Diaz Huizar</p>
-            <div class="flex justify-center items-center gap-6 mt-4">
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <p>© 2024 Maya Diaz Huizar</p>
+            <div class="footer-social">
                 <a href="https://github.com/mayahuizar"
-                   class="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                   class="social-link"
                    target="_blank"
                    rel="noopener noreferrer">
                     <i data-feather="github"></i>
                     <span>GitHub</span>
                 </a>
                 <a href="https://www.linkedin.com/in/maya-diaz-huizar-12a643306/"
-                   class="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                   class="social-link"
                    target="_blank"
                    rel="noopener noreferrer">
                     <i data-feather="linkedin"></i>
                     <span>LinkedIn</span>
                 </a>
                 <a href="mailto:huizar@seas.upenn.edu"
-                   class="flex items-center gap-2 text-gray-600 hover:text-gray-900">
+                   class="social-link">
                     <i data-feather="mail"></i>
                     <span>Email</span>
                 </a>
                 <a href="/public/resume.pdf"
-                   class="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                   class="social-link"
                    target="_blank"
                    rel="noopener noreferrer">
                     <i data-feather="file-text"></i>
