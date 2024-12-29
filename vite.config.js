@@ -10,16 +10,16 @@ export default defineConfig({
                 main: resolve(__dirname, 'index.html'),
                 about: resolve(__dirname, 'about.html'),
                 projects: resolve(__dirname, 'projects.html')
-            }
-        },
-        assetsDir: 'assets',
-        // Don't add hashes to asset filenames
-        rollupOptions: {
+            },
             output: {
-                entryFileNames: 'assets/[name].js',
-                chunkFileNames: 'assets/[name].js',
-                assetFileNames: 'assets/[name].[ext]'
+                assetFileNames: (assetInfo) => {
+                    if (assetInfo.name === 'style.css') return 'assets/style.css';
+                    return 'assets/[name].[ext]';
+                }
             }
         }
+    },
+    css: {
+        postcss: './postcss.config.js'
     }
 })
