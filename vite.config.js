@@ -1,15 +1,17 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 export default defineConfig({
-    base: '/',
+    base: './',
     build: {
         outDir: 'dist',
         rollupOptions: {
             input: {
-                main: 'index.html',
-                about: 'about.html',
-                projects: 'projects.html'
+                index: resolve(__dirname, 'index.html'),
+                about: resolve(__dirname, 'about.html'),
+                projects: resolve(__dirname, 'projects.html')
             }
         }
-    }
+    },
+    publicDir: 'public', // Ensure public directory is copied
 })

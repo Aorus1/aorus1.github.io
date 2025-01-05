@@ -25,9 +25,22 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Debug Build Output
+        run: |
+          echo "Contents of dist directory:"
+          ls -la dist/
+          echo "Checking if projects.html exists:"
+          test -f dist/projects.html && echo "projects.html exists" || echo "projects.html is missing"
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
           branch: gh-pages
           clean: true
+
+      - name: Verify Deployment
+        run: |
+          echo "Checking gh-pages branch contents:"
+          git checkout gh-pages
+          ls -la
