@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Portfolio - Maya Diaz Huizar</title>
+  <link rel="stylesheet" href="/src/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+  <style>
+    /* Base layout */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(249, 250, 251);
+    }
+    /* Navigation */
+    nav {
+      background-color: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 50;
+    }
+    .nav-container {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    /* Main layout */
+    main {
+      padding-top: 5rem;
+      flex: 1;
+    }
+    .section-container {
+      padding-top: 4rem;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    /* Art Portfolio Styles */
+    .main-art {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .main-art img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .main-art img:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    .thumbnail-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .thumbnail {
+      border: none;
+      background: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    .thumbnail img {
+      width: 80px;
+      height: auto;
+      border-radius: 0.25rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .thumbnail img:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    /* Footer styles */
+    footer {
+      background-color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+      border-top: 1px solid #e5e7eb;
+      width: 100%;
+    }
+    footer .container {
+      text-align: center;
+    }
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+    /* Utility classes */
+    .hidden {
+      display: none;
+    }
+    /* Mobile menu */
+    #mobile-menu.hidden {
+      display: none;
+    }
+    #mobile-menu {
+      background-color: white;
+      padding: 0.5rem 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+<!-- Navigation -->
+<nav>
+  <div class="nav-container">
+    <a href="./" class="nav-brand">Maya Diaz Huizar</a>
+    <div class="nav-links">
+      <a href="./about.html" class="nav-link">About</a>
+      <a href="./projects.html" class="nav-link">Projects</a>
+      <a href="./art.html" class="nav-link active">Art</a>
+    </div>
+    <button type="button" id="mobile-menu-button" class="mobile-menu-button">
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="mobile-menu hidden">
+    <a href="./about.html" class="nav-link">About</a>
+    <a href="./projects.html" class="nav-link">Projects</a>
+    <a href="./art.html" class="nav-link">Art</a>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="container">
+  <div class="section-container">
+    <section class="bg-white rounded-lg shadow-sm p-6 portfolio-section">
+      <h1 class="text-3xl font-bold text-gray-900 mb-6">Art Portfolio</h1>
+      <div class="main-art">
+        <img id="main-art-image" src="/public/img1.png" alt="Art Perspective 1">
+      </div>
+      <div class="thumbnail-buttons">
+        <button class="thumbnail" data-img="/public/img1.png">
+          <img src="/public/img1.png" alt="Thumbnail 1">
+        </button>
+        <button class="thumbnail" data-img="/public/img2.png">
+          <img src="/public/img2.png" alt="Thumbnail 2">
+        </button>
+        <button class="thumbnail" data-img="/public/img3.png">
+          <img src="/public/img3.png" alt="Thumbnail 3">
+        </button>
+        <button class="thumbnail" data-img="/public/img4.png">
+          <img src="/public/img4.png" alt="Thumbnail 4">
+        </button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <p>© 2024 Maya Diaz Huizar</p>
+      <div class="footer-social">
+        <a href="https://github.com/Aorus1" class="social-link" target="_blank" rel="noopener noreferrer">
+          <i data-feather="github"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/maya-diaz-huizar-12a643306/" class="social-link" target="_blank" rel="noopener noreferrer">
+          <i data-feather="linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="mailto:huizar@seas.upenn.edu" class="social-link">
+          <i data-feather="mail"></i>
+          <span>Email</span>
+        </a>
+        <a href="/public/resume.pdf" class="social-link" target="_blank" rel="noopener noreferrer">
+          <i data-feather="file-text"></i>
+          <span>Resume</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Initialize Feather icons
+  if (typeof feather !== 'undefined') {
+    feather.replace();
+  }
+
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // Thumbnail button functionality: swap the main image on click
+  const thumbnails = document.querySelectorAll('.thumbnail');
+  const mainArtImage = document.getElementById('main-art-image');
+
+  thumbnails.forEach(button => {
+    button.addEventListener('click', () => {
+      const newSrc = button.getAttribute('data-img');
+      mainArtImage.src = newSrc;
+      // Update the alt text by modifying the thumbnail alt value
+      mainArtImage.alt = button.querySelector('img').alt.replace('Thumbnail', 'Art Perspective');
+    });
+  });
+</script>
+</body>
+</html>
