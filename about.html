@@ -432,7 +432,7 @@
             </div>
 
             <!-- Junior Courses -->
-            <div id="junior-courses">
+            <div id="junior-courses" class="hidden">
               <div class="course-grid">
                 <div class="course-box">
                   <p class="course-code">MATH 3600</p>
@@ -497,6 +497,10 @@
                   <p class="course-title">Senior Design I</p>
                 </div>
                 <div class="course-box">
+                  <p class="course-code">CIS 5030</p>
+                  <p class="course-title">Algorithms for Big Data</p>
+                </div>
+                <div class="course-box">
                   <p class="course-code">CIS 5470</p>
                   <p class="course-title">Software Analysis</p>
                 </div>
@@ -507,6 +511,26 @@
                 <div class="course-box">
                   <p class="course-code">MATH 3710</p>
                   <p class="course-title">Abstract Algebra II</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 4010</p>
+                  <p class="course-title">Senior Design II</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 5190</p>
+                  <p class="course-title">Introduction to Machine Learning</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">CIS 5200</p>
+                  <p class="course-title">Machine Learning</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">ESE 6650</p>
+                  <p class="course-title">Datacenter Architecture</p>
+                </div>
+                <div class="course-box">
+                  <p class="course-code">STAT 4330</p>
+                  <p class="course-title">Stochastic Processes</p>
                 </div>
               </div>
             </div>
@@ -709,7 +733,7 @@
     });
 
     // Set default active tab
-    const defaultTab = document.getElementById('junior-tab');
+    const defaultTab = document.getElementById('senior-tab');
     if (defaultTab) {
       defaultTab.click();
     }
